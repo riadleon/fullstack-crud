@@ -1,5 +1,6 @@
 import React from 'react';
 import InputForm from './InputForm';
+import './Home.css'
 
 const Home = () => {
     return (
