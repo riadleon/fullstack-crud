@@ -5,34 +5,34 @@ import { useNavigate } from 'react-router-dom';
 
 const InputForm = () => {
     const { register, handleSubmit, reset, rest, formState: { errors } } = useForm();
-    const [givemessage, setGiveMessage] = useState('');
+    const [message, setMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
 
 
     const onSubmitHandler = user => {
-        fetch('http://localhost:8000/single', {
+        fetch('http://localhost:8000/users', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(user)
         }).then(() => {
-            console.log(`${user.email}  is inserted successfully!!!`);
-            toast(`${user.email} updated  in to the table!!!`);
+            console.log(`${user.first}  is inserted successfully!!!`);
+            toast(`${user.first} your user is created!!!`);
             reset('first');
             reset('last');
             reset('email');
             reset('ph');
             setErrorMessage('');
-            navigate('/')
+            navigate('/allusers')
         }).catch(error => {
             console.error(error.message);
             toast('Insert Data failed!!!');
-            setGiveMessage('');
+            setMessage('');
         });
     };
 
     const onFocusHandler = () => {
-        setGiveMessage('');
+        setMessage('');
         setErrorMessage('');
     };
     return (
@@ -54,22 +54,23 @@ const InputForm = () => {
                                                         <div className="form-group mt-2">
                                                             <input
                                                                 type="text"
-                                                                onFocus={onFocusHandler} {...register('first', {
+                                                                onFocus={onFocusHandler} {...register("first", {
                                                                     required: "First Name is Required"
-                                                                })}
-                                                                className='form-style'
-
+                                                                })} className='form-style'
                                                                 placeholder="Enter your first name"
-                                                                id="logmail"
                                                                 autoComplete="off"
 
+
+
                                                                 required />
+                                                            <br />
+                                                            {errors.first && <p className='error-color '>{errors.first.message}</p>}
 
                                                         </div>
                                                         <div className="form-group mt-2">
                                                             <input
                                                                 type="text"
-                                                                onFocus={onFocusHandler} {...register('last', {
+                                                                onFocus={onFocusHandler} {...register("last", {
                                                                     required: "Last Name is Required"
                                                                 })}
                                                                 className='form-style'
@@ -78,13 +79,14 @@ const InputForm = () => {
                                                                 id="logmail"
                                                                 autoComplete="off"
 
-                                                                required />
+                                                                required /><br />
+                                                            {errors.last && <p className='error-color '>{errors.last.message}</p>}
 
                                                         </div>
                                                         <div className="form-group mt-2">
                                                             <input
                                                                 type="email"
-                                                                onFocus={onFocusHandler} {...register('email', {
+                                                                onFocus={onFocusHandler} {...register("email", {
                                                                     required: "Email is Required"
                                                                 })}
                                                                 className='form-style'
@@ -93,26 +95,28 @@ const InputForm = () => {
                                                                 id="logmail"
                                                                 autoComplete="off"
 
-                                                                required />
+                                                                required /><br />
+                                                            {errors.email && <p className='error-color '>{errors.email.message}</p>}
 
                                                         </div>
-                                                        <div className="form-group mt-2">
+                                                        <div className="form-group ">
                                                             <input
                                                                 type="number"
-                                                                onFocus={onFocusHandler} {...register('ph', {
+                                                                onFocus={onFocusHandler} {...register("ph", {
                                                                     required: "Phone Number is Required"
-                                                                })}
-                                                                className='form-style'
-
+                                                                })} className='form-style'
                                                                 placeholder="Enter your phone number"
-                                                                id="logmail"
                                                                 autoComplete="off"
 
-                                                                required />
+
+
+
+                                                                required /><br />
+                                                            {errors.ph && <p className='error-color '>{errors.ph.message}</p>}
 
                                                         </div>
 
-                                                        <button className='btn mt-4'>Add User</button>
+                                                        <button className='btn '>Add User</button>
 
 
 
@@ -129,6 +133,8 @@ const InputForm = () => {
                     </div>
                 </div>
             </form>
+            <p style={{ color: "pink" }}>{message}</p>
+            <p style={{ color: "orange" }}>{errorMessage}</p>
         </div>
     );
 };

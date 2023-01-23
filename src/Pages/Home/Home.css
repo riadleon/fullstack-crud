@@ -181,7 +181,7 @@ h6 span {
     letter-spacing: 0.5px;
     outline: none;
     color: #c4c3ca;
-    background-color: #1f2029;
+    background-color: #152080;
     border: none;
     -webkit-transition: all 200ms linear;
     transition: all 200ms linear;
@@ -292,6 +292,38 @@ h6 span {
     margin-top: 5px;
 }
 
+.btn-sm {
+    border-radius: 4px;
+    height: 44px;
+    width: 40px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+    padding: 0 30px;
+    letter-spacing: 1px;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    -ms-flex-pack: center;
+    text-align: center;
+    border: none;
+    background-color: #ffeba7;
+    color: #102770;
+    box-shadow: 0 8px 24px 0 rgba(255, 235, 167, 0.2);
+    margin-top: 5px;
+    margin: 3px;
+}
+
 .btn:active,
 .btn:focus {
     background-color: #102770;
@@ -338,4 +370,53 @@ h6 span {
 
 .error-color {
     color: #f81818;
+}
+
+/* .table {
+    width: 50%;
+    border-collapse: collapse;
+    text-align: center;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid black;
+
+}
+
+.thead {
+    position: sticky;
+    z-index: 100;
+}
+
+.trHead {
+    background: var(--bg);
+}
+
+.th {
+    padding: var(--sm-spacing);
+    color: var(--text);
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.trBody {
+    background: var(--white);
+}
+
+.td {
+    padding: var(--sm-spacing);
+    border: 1px solid var(--bg2);
+    font-size: 14px;
+} */
+
+table,
+th,
+td {
+    border: 1px solid;
+    width: 50%;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    margin-left: 25%;
+
 }
