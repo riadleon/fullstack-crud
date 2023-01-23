@@ -23,7 +23,7 @@ const Allusers = () => {
     }
     return (
 
-        <div className="bg min-h-screen justify-center  items-center text-lg lg:pl-96 pt-10">
+        <div className="">
             <h1 className='text-3xl pl-12 pb-5'>All Users </h1>
 
             <table className="table ">
@@ -46,7 +46,7 @@ const Allusers = () => {
 
 
                             <td>
-                                <Link to={`/display/${user._id}`}>
+                                <Link to={`/updateuser/${user._id}`}>
                                     <button className="btn-sm ">
                                         Details
                                     </button>
