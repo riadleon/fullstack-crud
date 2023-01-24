@@ -1,3 +1,13 @@
+***************Important Links****************
+Live Site : https://fullstack-crud-ecru.vercel.app/
+Github(Client) : https://github.com/riadleon/fullstack-crud
+Github(Server): https://github.com/riadleon/fullstack-crud-server
+Video: https://www.loom.com/share/6286bc219af34c00af50c4f5c23a67c0
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
