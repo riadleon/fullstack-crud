@@ -1,14 +1,26 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 
 const UpdateUsers = () => {
-    const user = useLoaderData();
+    const storeduser = useLoaderData();
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
+
+    const onUpdateHandler = user => {
+        fetch(`http://localhost:8000/users/${storeduser._id}`, {
+            method: 'PUT',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(user)
+        }).then(() => {
+            toast(`${user.first} ${user.last}'s information updated successfully!!!`);
+            navigate("/allusers");
+        }).catch(err => console.log(err));
+    };
     return (
         <div>
-            <form >
+            <form onSubmit={handleSubmit(onUpdateHandler)}>
                 <div className="section">
                     <div className="container">
                         <div className="row full-height justify-content-center">
@@ -20,11 +32,11 @@ const UpdateUsers = () => {
                                             <div className="card-front">
                                                 <div className="center-wrap">
                                                     <div className="section text-center">
-                                                        <h4 className="mb-4 pb-3">Create a user here!!</h4>
+                                                        <h4 className="mb-4 pb-3">Update user here!!</h4>
 
                                                         <div className="form-group mt-2">
                                                             <input
-                                                                defaultValue={user.first}
+                                                                defaultValue={storeduser.first}
                                                                 {...register("first", {
                                                                     required: "First Name is Required"
                                                                 })} className='form-style'
@@ -41,7 +53,7 @@ const UpdateUsers = () => {
                                                         <div className="form-group mt-2">
                                                             <input
 
-                                                                defaultValue={user.last}
+                                                                defaultValue={storeduser.last}
                                                                 {...register("last", {
                                                                     required: "Last Name is Required"
                                                                 })}
@@ -57,7 +69,7 @@ const UpdateUsers = () => {
                                                         </div>
                                                         <div className="form-group mt-2">
                                                             <input
-                                                                defaultValue={user.email}
+                                                                defaultValue={storeduser.email}
                                                                 {...register("email", {
                                                                     required: "Email is Required"
                                                                 })}
@@ -73,7 +85,7 @@ const UpdateUsers = () => {
                                                         </div>
                                                         <div className="form-group ">
                                                             <input
-                                                                defaultValue={user.ph}
+                                                                defaultValue={storeduser.ph}
                                                                 {...register("ph", {
                                                                     required: "Phone Number is Required"
                                                                 })} className='form-style'
@@ -88,7 +100,7 @@ const UpdateUsers = () => {
 
                                                         </div>
 
-                                                        <button className='btn '>update User</button>
+                                                        <button type='submit' className='btn '>update User</button>
 
 
 
