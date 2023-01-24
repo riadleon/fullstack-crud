@@ -11,7 +11,7 @@ const InputForm = () => {
 
 
     const onSubmitHandler = user => {
-        fetch('http://localhost:8000/users', {
+        fetch('https://fullstack-crud-server.vercel.app/users', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(user)

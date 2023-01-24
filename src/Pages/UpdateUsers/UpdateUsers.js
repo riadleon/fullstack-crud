@@ -9,7 +9,7 @@ const UpdateUsers = () => {
     const navigate = useNavigate();
 
     const onUpdateHandler = user => {
-        fetch(`http://localhost:8000/users/${storeduser._id}`, {
+        fetch(`https://fullstack-crud-server.vercel.app/users/${storeduser._id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(user)

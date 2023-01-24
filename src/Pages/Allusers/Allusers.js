@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Allusers = () => {
     const [users, getUsers] = useState([]);
+    const [block, setBlock] = useState(false);
 
-    const url = 'http://localhost:8000/users';
+    const url = 'https://fullstack-crud-server.vercel.app/users';
 
     useEffect(() => {
         getAllUsers();
@@ -23,7 +24,7 @@ const Allusers = () => {
     }
 
     const handleDelete = user => {
-        fetch(`http://localhost:8000/users/${user._id}`, {
+        fetch(`https://fullstack-crud-server.vercel.app/users/${user._id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -33,6 +34,10 @@ const Allusers = () => {
                 console.log(`${user.first} ${user.last} is deleted successfully!!!`);
             });
     };
+
+    const handleBlock = () => {
+        setBlock(!block);
+    }
     return (
 
         <div className="">
@@ -59,13 +64,13 @@ const Allusers = () => {
 
                             <td>
                                 <Link to={`/updateuser/${user._id}`}>
-                                    <button className="btn-sm decoration">
+                                    <button className="details-btn textbtn">
                                         Details
                                     </button>
                                 </Link>
 
-                                <button className="btn-sm ">
-                                    Block
+                                <button onClick={() => handleBlock(user)} className="btn-sm ">
+                                    {block ? 'Unblock' : 'Block'}
                                 </button>
 
 

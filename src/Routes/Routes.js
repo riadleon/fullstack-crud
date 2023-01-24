@@ -29,7 +29,7 @@ const router = createBrowserRouter([
             {
                 path: '/updateuser/:id',
                 element: <UpdateUsers></UpdateUsers>,
-                loader: ({ params }) => fetch(`http://localhost:8000/users/${params.id}`)
+                loader: ({ params }) => fetch(`https://fullstack-crud-server.vercel.app/users/${params.id}`)
             },
 
 
