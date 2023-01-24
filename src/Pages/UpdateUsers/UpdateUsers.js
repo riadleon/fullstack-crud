@@ -37,15 +37,8 @@ const UpdateUsers = () => {
                                                         <div className="form-group mt-2">
                                                             <input
                                                                 defaultValue={storeduser.first}
-                                                                {...register("first", {
-                                                                    required: "First Name is Required"
-                                                                })} className='form-style'
-                                                                placeholder="Enter your first name"
-                                                                autoComplete="off"
-
-
-
-                                                                required />
+                                                                {...register("first")} className='form-style'
+                                                            />
                                                             <br />
 
 
@@ -54,48 +47,31 @@ const UpdateUsers = () => {
                                                             <input
 
                                                                 defaultValue={storeduser.last}
-                                                                {...register("last", {
-                                                                    required: "Last Name is Required"
-                                                                })}
+                                                                {...register("last")}
                                                                 className='form-style'
 
-                                                                placeholder="Enter your last name"
-                                                                id="logmail"
-                                                                autoComplete="off"
 
-                                                                required /><br />
+                                                            /><br />
 
 
                                                         </div>
                                                         <div className="form-group mt-2">
                                                             <input
                                                                 defaultValue={storeduser.email}
-                                                                {...register("email", {
-                                                                    required: "Email is Required"
-                                                                })}
+                                                                {...register("email")}
                                                                 className='form-style'
 
-                                                                placeholder="Enter Your Email"
-                                                                id="logmail"
-                                                                autoComplete="off"
                                                                 disabled
-                                                                required /><br />
+                                                            /><br />
 
 
                                                         </div>
                                                         <div className="form-group ">
                                                             <input
                                                                 defaultValue={storeduser.ph}
-                                                                {...register("ph", {
-                                                                    required: "Phone Number is Required"
-                                                                })} className='form-style'
-                                                                placeholder="Enter your phone number"
-                                                                autoComplete="off"
-
-
-
-
-                                                                required /><br />
+                                                                {...register("ph")}
+                                                                className='form-style'
+                                                            /><br />
 
 
                                                         </div>

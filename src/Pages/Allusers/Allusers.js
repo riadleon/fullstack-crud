@@ -21,6 +21,18 @@ const Allusers = () => {
             })
             .catch(error => console.error(`Error: ${error}`));
     }
+
+    const handleDelete = user => {
+        fetch(`http://localhost:5000/users/${user._id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(() => {
+                const remainingUsers = users.filter(usr => usr._id !== user._id);
+                getUsers(remainingUsers);
+                console.log(`${user.first} ${user.last} is deleted successfully!!!`);
+            });
+    };
     return (
 
         <div className="">
@@ -47,20 +59,20 @@ const Allusers = () => {
 
                             <td>
                                 <Link to={`/updateuser/${user._id}`}>
-                                    <button className="btn-sm ">
+                                    <button className="btn-sm decoration">
                                         Details
                                     </button>
                                 </Link>
-                                <Link to={`/display/${user._id}`}>
-                                    <button className="btn-sm ">
-                                        Block
-                                    </button>
-                                </Link>
-                                <Link to={`/display/${user._id}`}>
-                                    <button className="btn-sm ">
-                                        Delete
-                                    </button>
-                                </Link>
+
+                                <button className="btn-sm ">
+                                    Block
+                                </button>
+
+
+                                <button onClick={() => handleDelete(user)} className="btn-sm ">
+                                    Delete
+                                </button>
+
                             </td>
                         </tr>)
                     }
