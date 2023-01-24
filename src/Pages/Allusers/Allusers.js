@@ -23,7 +23,7 @@ const Allusers = () => {
     }
 
     const handleDelete = user => {
-        fetch(`http://localhost:5000/users/${user._id}`, {
+        fetch(`http://localhost:8000/users/${user._id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -72,6 +72,7 @@ const Allusers = () => {
                                 <button onClick={() => handleDelete(user)} className="btn-sm ">
                                     Delete
                                 </button>
+
 
                             </td>
                         </tr>)
